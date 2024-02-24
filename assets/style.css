@@ -1,3 +1,13 @@
+.body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 /*Timer Style*/
+#timer {
+    position: relative;
+    text-align: right;
+    margin-right: 5%;
+    font-weight: 100;
+}
 
 /*Button Style*/
