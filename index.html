@@ -10,7 +10,7 @@
 
     <!--High score link-->
     <div>
-        <h2 id = "high_score"></h2>
+        <h2 id="high_scores">High Scores</h2>
     </div>
 
     <!--Timer-->
@@ -20,15 +20,21 @@
 
     <!--Quiz Container-->
     <div class="quiz_container">
-            <h2 id="primary_text"></h2>
+            <section><h2 id="quiz_prompt">Coding Quiz Challenge</h2>
+            <p>Try to answer the following code-related questions within the time limit.
+            <br>Keep in mind that incorrect answers will penalize your score/time by ten seconds!
+            </p>
+            <button id="start_quiz">Start Quiz</button>
+            </section>
+
+            <h2 id="question1"></h2>
             <ul>
-                <li id="option1">
-                <li id="option2">
-                <li id="option3">
-                <li id="option4">
+                <li><button id="option1"></li>
+                <li><button id="option2"></li>
+                <li><button id="option3"></li>
+                <li><button id="option4"></li>
             </ul>
-            <button id="submit"></button>
-            <div id="answer_verification"></div>
+            <p id="answer_verification"></p>
     </div>    
 
 
