@@ -1,5 +1,3 @@
-//button styles when clicked
-
 //function for timer counter
 var timer = document.getElementById("timer");
 
@@ -64,6 +62,20 @@ document.getElementById("option2").textContent = question1.options[1];
 document.getElementById("option3").textContent = question1.options[2];
 document.getElementById("option4").textContent = question1.options[3];
 
+
+//User input button
+var button = document.getElementById("button")
+
+//Function to determine user's answer is right/wrong
+var answerVerification = document.getElementById("answer_verification");
+
+function verifyAnswer(userAnswer) {
+    if (userAnswer === question1answer) {
+        answerVerification.textContent = "Correct!"; 
+    } else {
+        answerVerification.textContent = "Incorrect!";
+    }
+}
 
 //function to calculate and display high scores
 

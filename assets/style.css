@@ -1,3 +1,9 @@
+:root {
+    --button_background: rgb(44, 123, 171);
+    --secondary: rgb(230, 126, 143);
+
+}
+
 .body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -10,4 +16,21 @@
     font-weight: 100;
 }
 
+/*Quiz options list*/
+.ul {
+    list-style: none;
+}
+
 /*Button Style*/
+#button {
+    color: white;
+    background-color: var(--button_background);
+    text-align: center;
+    padding: 2% 5%;
+    text-decoration: none;
+    border: none, 6px;
+}
+
+#button:hover {
+    background-color: var(--secondary);
+}
