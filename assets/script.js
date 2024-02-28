@@ -9,34 +9,9 @@ var submitButton = document.getElementById("submit_score");
 var goBackButton = document.getElementById("go_back")
 
 
-//function for timer counter
-
-function countdown() {
-    var secondsLeft = 75;
-
-    timerEl.textContent = "Time: " + secondsLeft;
-
-    var timerInterval = setInterval(function() {
-        secondsLeft--;
-
-        timerEl.textContent = "Time: " + secondsLeft;
-    
-     if (secondsLeft <= 0) {
-        clearInterval(timerInterval);
-    }
-    }, 1000);
-}
-
-countdown();
-
-
-//Opening Quiz Prompt
-var currentQuestion = 0;
-
-
-
 //Quiz question/answer array
-{
+var questions = {
+
     question: "Commonly used data types DO NOT include:",
     options: ["1. Strings", "2. Booleans", "3. Alerts", "4. Numbers"],
     answer: "3. Alerts",
@@ -61,6 +36,38 @@ var currentQuestion = 0;
 }
 
 
+//Function to begin quiz and timer when "Start Quiz" button is clicked
+var currentQuestion = 0;
+var time = questions.length * 15;
+
+function startQuiz () {
+    var secondsLeft = 75;
+
+    timerEl.textContent = "Time: " + secondsLeft;
+
+    var timerInterval = setInterval(function() {
+        secondsLeft--;
+
+        timerEl.textContent = "Time: " + secondsLeft;
+    
+     if (secondsLeft <= 0) {
+        clearInterval(timerInterval);
+    }
+    }, 1000);
+
+    //Hide the opening quiz prompt
+    var quizStartPrompt = document.getElementById("#quiz_start");
+    quizStartPrompt.setAttribute("class", "hidden");
+
+    //Display the quiz question
+    questionsEl.removeAttribute("class", "hidden");
+
+    getQuestion();
+}
+
+startButton.onclick = startQuiz;
+
+
 //Display quiz questions
 document.getElementById("question_prompt").textContent = question1.question;
 document.getElementById("option1").textContent = question1.options[0];
@@ -69,22 +76,19 @@ document.getElementById("option3").textContent = question1.options[2];
 document.getElementById("option4").textContent = question1.options[3];
 
 
-//User input button
-var userAnswer = document.querySelector("button");
-
-
-//Determine if user's answer is right/wrong
+//Determine if user's answer is correct/incorrect
 var userScore = 0;
 
-function verifyAnswer(userAnswer) {
+function verifyAnswer() {
     if (this.value === questions[currentQuestion].answer) {
         answerVerification.textContent = "Correct!";
         userScore += 1;
     } else {
         answerVerification.textContent = "Incorrect!";
-        time -= 10;
-        if (time < 0) {
-            time = 0;
+        //Deduct 10 seconds for incorrect answer
+        secondsLeft -= 10;
+        if (secondsLeft < 0) {
+            secondsLeft = 0;
         };
     };
 
@@ -111,7 +115,8 @@ document.addEventListener("click", verifyAnswer)
 
 //End quiz and zero score if user does not finish before timer reaches zero
 function timerOut () {
-    if (timerEl <= 0) {
+    if (secondsLeft === 0) {
+        alert ("Sorry, out of time.");
         quizResult ();
         userScore = 0;
     }
