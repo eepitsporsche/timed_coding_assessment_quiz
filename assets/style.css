@@ -8,6 +8,9 @@ body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
 
 /*High Score Link Style*/
 #high_scores {
@@ -26,6 +29,7 @@ body {
 /*Timer Style*/
 #timer {
     position: relative;
+    color: var(--secondary);
     text-align: right;
     margin: -4% 5% 0 0;
     font-weight: 100;
@@ -33,7 +37,7 @@ body {
 
 
 /*Quiz Prompt Attributes*/
-.quiz_prompt, #question1 {
+.quiz_prompt, #question_prompt, .quiz_end > h2 {
     margin: 10% 0 0 0;
     font-weight: 600;
 }

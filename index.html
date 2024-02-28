@@ -9,33 +9,43 @@
 <body>
 
     <!--High score link-->
-    <div>
-        <h2 id="high_scores">High Scores</h2>
-    </div>
+        <div>
+            <a href="./highscores.html"><h2 id="high_scores">High Scores</h2></a>
+        </div>
 
     <!--Timer-->
-    <div >
-        <h2 id="timer"></h2>
-    </div>
+        <div>
+            <h2 id="timer">Time: </h2>
+        </div>
 
     <!--Quiz Container-->
-    <div class="quiz_container">
-            <section><h2 id="quiz_prompt">Coding Quiz Challenge</h2>
+    <main class="quiz_container">
+            <!--Quiz Intro Prompt-->
+            <section id="quiz_start"><h2 id="quiz_prompt">Coding Quiz Challenge</h2>
             <p>Try to answer the following code-related questions within the time limit.
             <br>Keep in mind that incorrect answers will penalize your score/time by ten seconds!
             </p>
             <button id="start_quiz">Start Quiz</button>
             </section>
 
-            <h2 id="question1"></h2>
-            <ul>
-                <li><button id="option1"></li>
-                <li><button id="option2"></li>
-                <li><button id="option3"></li>
-                <li><button id="option4"></li>
-            </ul>
+            <!--Quiz Questions-->
+            <section class="hidden" id="questions">
+            <h2 id="question_prompt"></h2>
+                <div id="options"><div>
             <p id="answer_verification"></p>
-    </div>    
+            </section>
+
+            <!--Save User Score & Initials-->
+            <section class="hidden" id="quiz_end">
+                <h2>All done!</h2>
+                <p>Your final score is 
+                    <span id="user_score"></span>
+                <br>
+                    <input type="text" id="user_name" placeholder="Enter initials."/>
+                    <button id="submit_score">Submit</button>
+                </p>
+            </section>
+    </main>    
 
 
     <script src="./assets/script.js"></script>

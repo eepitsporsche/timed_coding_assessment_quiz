@@ -1,15 +1,24 @@
+//DOM Elements
+var timerEl = document.getElementById("timer");
+var questionsEl = document.getElementById("questions");
+var optionsEl = document.getElementById("options");
+var startButton = document.getElementById("start_quiz");
+var userNameEl = document.getElementById("user_name");
+var submitButton = document.getElementById("submit_score");
+var goBackButton = document.getElementById("go_back")
+
+
 //function for timer counter
-var timer = document.getElementById("timer");
 
 function countdown() {
     var secondsLeft = 75;
 
-    timer.textContent = "Time: " + secondsLeft;
+    timerEl.textContent = "Time: " + secondsLeft;
 
     var timerInterval = setInterval(function() {
         secondsLeft--;
 
-        timer.textContent = "Time: " + secondsLeft;
+        timerEl.textContent = "Time: " + secondsLeft;
     
      if (secondsLeft <= 0) {
         clearInterval(timerInterval);
@@ -24,31 +33,25 @@ countdown();
 
 
 //Quiz question/answer array
-var question1 = {
+{
     question: "Commonly used data types DO NOT include:",
     options: ["1. Strings", "2. Booleans", "3. Alerts", "4. Numbers"],
     answer: "3. Alerts",
-}
 
-var question2 = {
     question: "The condition of an if/else statement is enclosed with:",
     options: ["1. Quotes", "2. Curly brackets", "3. Parenthesis", "4. Square brackets"],
     answer: "3. Parenthesis",
-}
 
-var question3 = {
+
     question: "Arrays in javascript can be used to store _______.",
     options: ["1. Numbers and strings", "2. Other arrays", "3. Booleans", "4. All of the above"],
     answer: "4. All of the above",
-}
 
-var question4 = {
     question: "String values must be enclosed within _______ when being assigned to variables.",
     options: ["1. Commas", "2. Curly brackets", "3. Quotes", "4. Parenthesis"],
     answer: "3. Quotes",
-}
 
-var question5 = {
+
     question: "A very useful tool used during development and debugging for printing content to the debugger is:",
     options: ["1. Javascript", "2. Terminal/Bash", "3. For loops", "4. Console.log"],
     answer: "4. Console.log",
@@ -56,7 +59,7 @@ var question5 = {
 
 
 //Display quiz questions
-document.getElementById("question1").textContent = question1.question;
+document.getElementById("question_prompt").textContent = question1.question;
 document.getElementById("option1").textContent = question1.options[0];
 document.getElementById("option2").textContent = question1.options[1];
 document.getElementById("option3").textContent = question1.options[2];
@@ -64,20 +67,24 @@ document.getElementById("option4").textContent = question1.options[3];
 
 
 //User input button
-var userAnswer = document.querySelectorAll("button");
+var userAnswer = document.querySelector("button");
+
 
 //Function to determine user's answer is right/wrong
 answerVerification = document.getElementById("answer_verification");
 var userScore = 0;
 
-document.addEventListener("click", function verifyAnswer(userAnswer) {
+function verifyAnswer(userAnswer) {
     if (userAnswer === question1.answer) {
         answerVerification.textContent = "Correct!";
-        userScore++
+        userScore += 1;
     } else {
         answerVerification.textContent = "Incorrect!";
     }
-})
+}
+
+document.addEventListener("click", verifyAnswer)
+
 
 //function to calculate score
 
