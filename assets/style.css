@@ -12,6 +12,10 @@ a {
     text-decoration: none;
 }
 
+.hidden {
+    display: none;
+}
+
 /*High Score Link Style*/
 #high_scores {
     position: relative;
@@ -47,7 +51,7 @@ a {
 #start_quiz {
     text-align: center;
     padding: 1% 0 1% 0;
-    margin: 5% 0 0 0;
+    margin: 3% 0 3% 0;
 }
 
 #start_quiz:hover {

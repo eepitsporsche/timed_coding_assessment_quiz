@@ -3,6 +3,7 @@ var timerEl = document.getElementById("timer");
 var questionsEl = document.getElementById("questions");
 var optionsEl = document.getElementById("options");
 var startButton = document.getElementById("start_quiz");
+var answerVerification = document.getElementById("answer_verification");
 var userNameEl = document.getElementById("user_name");
 var submitButton = document.getElementById("submit_score");
 var goBackButton = document.getElementById("go_back")
@@ -29,7 +30,9 @@ function countdown() {
 countdown();
 
 
-//Opening Quiz Text
+//Opening Quiz Prompt
+var currentQuestion = 0;
+
 
 
 //Quiz question/answer array
@@ -70,17 +73,35 @@ document.getElementById("option4").textContent = question1.options[3];
 var userAnswer = document.querySelector("button");
 
 
-//Function to determine user's answer is right/wrong
-answerVerification = document.getElementById("answer_verification");
+//Determine if user's answer is right/wrong
 var userScore = 0;
 
 function verifyAnswer(userAnswer) {
-    if (userAnswer === question1.answer) {
+    if (this.value === questions[currentQuestion].answer) {
         answerVerification.textContent = "Correct!";
         userScore += 1;
     } else {
         answerVerification.textContent = "Incorrect!";
-    }
+        time -= 10;
+        if (time < 0) {
+            time = 0;
+        };
+    };
+
+    //Correct/incorrect message times out
+    setTimeout (function() {
+        answerVerification.setAttribute("class", "hidden")
+    }, 1000);
+
+    //Presents next quiz question
+    currentQuestion++;
+
+    //Ends quiz if all questions have cycled through
+    if (currentQuestion === questions.length) {
+        quizResult ();
+    } else {
+        nextQuestion ();
+}
 }
 
 document.addEventListener("click", verifyAnswer)
