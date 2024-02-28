@@ -109,7 +109,13 @@ document.addEventListener("click", verifyAnswer)
 
 //function to calculate score
 
-//zero score if user does not finish before timer runs out
+//End quiz and zero score if user does not finish before timer runs out
+function timerOut () {
+    if (timerEl <= 0) {
+        quizResult ();
+        userScore = 0;
+    }
+}
 
 //display high scores
 var highScores = document.getElementById("high_scores")
