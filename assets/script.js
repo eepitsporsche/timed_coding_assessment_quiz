@@ -1,16 +1,17 @@
 //DOM Elements
-var timerEl = document.getElementById("timer");
-var questionsEl = document.getElementById("questions");
-var optionsEl = document.getElementById("options");
-var startButton = document.getElementById("start_quiz");
-var answerVerification = document.getElementById("answer_verification");
-var userNameEl = document.getElementById("user_name");
-var submitButton = document.getElementById("submit_score");
-var goBackButton = document.getElementById("go_back")
+var timerEl = document.querySelector("#timer");
+var questionsEl = document.querySelector("#questions");
+var optionsEl = document.querySelector("#options");
+var startButton = document.querySelector("#start_quiz");
+var answerVerification = document.querySelector("#answer_verification");
+var userNameEl = document.querySelector("#user_name");
+var submitButton = document.querySelector("#submit_score");
+var goBackButton = document.querySelector("#go_back")
 
 
 //Quiz question/answer array
-var questions = {
+var questions = [
+    {
 
     question: "Commonly used data types DO NOT include:",
     options: ["1. Strings", "2. Booleans", "3. Alerts", "4. Numbers"],
@@ -34,14 +35,15 @@ var questions = {
     options: ["1. Javascript", "2. Terminal/Bash", "3. For loops", "4. Console.log"],
     answer: "4. Console.log",
 }
+]
 
 
-//Function to begin quiz and timer when "Start Quiz" button is clicked
+//Begin quiz and timer when "Start Quiz" button is clicked
 var currentQuestion = 0;
-var time = questions.length * 15;
+var secondsLeft = 75;
+// var time = questions.length * 15;
 
-function startQuiz () {
-    var secondsLeft = 75;
+function startQuiz() {
 
     timerEl.textContent = "Time: " + secondsLeft;
 
@@ -50,9 +52,6 @@ function startQuiz () {
 
         timerEl.textContent = "Time: " + secondsLeft;
     
-     if (secondsLeft <= 0) {
-        clearInterval(timerInterval);
-    }
     }, 1000);
 
     //Hide the opening quiz prompt
@@ -60,29 +59,39 @@ function startQuiz () {
     quizStartPrompt.setAttribute("class", "hidden");
 
     //Display the quiz question
-    questionsEl.removeAttribute("class", "hidden");
+    questionsEl.removeAttribute("class");
 
     getQuestion();
 }
 
-startButton.onclick = startQuiz;
-
 
 //Display quiz questions
-document.getElementById("question_prompt").textContent = question1.question;
-document.getElementById("option1").textContent = question1.options[0];
-document.getElementById("option2").textContent = question1.options[1];
-document.getElementById("option3").textContent = question1.options[2];
-document.getElementById("option4").textContent = question1.options[3];
+function getQuestion() {
+    var userQuestion = questions[currentQuestion];
+    var questionPrompt = document.getElementById("#question_prompt");
+
+    //Produce question prompt of the current question
+    questionPrompt.textContent = userQuestion.question;
+    
+    //Insert buttons for multiple choice options
+    optionsEl.innerHTML = "";
+    userQuestion.options.forEach (
+        function (choice, i) {
+            var answerButton = document.createElement("button");
+        
+            answerButton.setAttribute("value", choice);
+            answerButton.textContent = i + 1 + choice;
+
+            answerButton.onclick = verifyAnswer;
+            optionsEl.appendChild(answerButton)
+        })
+    };
 
 
 //Determine if user's answer is correct/incorrect
-var userScore = 0;
-
 function verifyAnswer() {
     if (this.value === questions[currentQuestion].answer) {
         answerVerification.textContent = "Correct!";
-        userScore += 1;
     } else {
         answerVerification.textContent = "Incorrect!";
         //Deduct 10 seconds for incorrect answer
@@ -94,7 +103,8 @@ function verifyAnswer() {
 
     //Correct/incorrect message times out
     setTimeout (function() {
-        answerVerification.setAttribute("class", "hidden")
+        // answerVerification.style.display = "none"
+        answerVerification.setAttribute("class", "hidden");
     }, 1000);
 
     //Presents next quiz question
@@ -102,25 +112,61 @@ function verifyAnswer() {
 
     //Ends quiz if all questions have cycled through
     if (currentQuestion === questions.length) {
-        quizResult ();
+        quizResult();
     } else {
-        nextQuestion ();
+        nextQuestion();
 }
 }
 
-document.addEventListener("click", verifyAnswer)
-
-
-//function to calculate score
 
 //End quiz and zero score if user does not finish before timer reaches zero
-function timerOut () {
-    if (secondsLeft === 0) {
+function timerOut() {
+    if (secondsLeft <= 0) {
+        clearInterval(timerInterval);
         alert ("Sorry, out of time.");
         quizResult ();
-        userScore = 0;
     }
 }
+
+
+//End quiz when user has answered all questions
+function quizResult() {
+    //Hide quiz questions
+    questionsEl.setAttribute("class", "hidden");
+
+    //Display emd of quiz prompt
+    var quizEndPrompt = document.getElementById("quiz_result");
+    quizEndPrompt.removeAttribute("class");
+
+    //Display users score (seconds remaining on timer)
+    var userScore = document.getElementById("user_score");
+    userScore.textContent = secondsLeft;
+}
+
+//Log user's score in high scores
+function logUserScore() {
+    var name = userNameEl.value.trim();
+    //Create a "highscores" log in local storage if a user's name has been entered or an empty array in local storage
+    if (name !== "") {
+        var highscores =
+            JSON.parse(window.localStorage.getItem("highscores"))
+            || [];
+
+        //Define new name and score input values to the local storage log
+        var = newHighScore {
+            score: secondsLeft,
+            name: name,
+        };
+        //Save the new high score values to the local storage log as a string
+        highscores.push(newHighScore);
+        window.localStorage.setItem("highscores", JSON.stringify(highscores));
+    }
+}
+
+
+//User's score is saved to local storage high score log when "Submit" button is clicked
+submitButton.onclick = logUserScore;
+
 
 //display high scores
 var highScores = document.getElementById("high_scores")
@@ -128,8 +174,7 @@ var highScores = document.getElementById("high_scores")
 // highScores.addEventListener(click,
 //     alert(""))
 
-//function to produce user's score
-
-//log user's initials
-
 //function to clear high scores
+
+//Quiz begins when "Start Quiz" button is clicked
+startButton.onclick = startQuiz();
