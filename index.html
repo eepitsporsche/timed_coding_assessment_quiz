@@ -9,42 +9,42 @@
 <body>
 
     <!--High score link-->
-        <div>
-            <a href="./highscores.html"><h2 id="high_scores">High Scores</h2></a>
-        </div>
+    <div>
+        <a href="./highscores.html"><h2 id="high_scores">High Scores</h2></a>
+    </div>
 
     <!--Timer-->
-        <div>
-            <h2 id="timer">Time: </h2>
-        </div>
+    <div>
+        <h2 id="timer">Time: </h2>
+    </div>
 
     <!--Quiz Container-->
     <main class="quiz_container">
-            <!--Quiz Intro Prompt-->
-            <div id="quiz_start"><h2 id="quiz_prompt">Coding Quiz Challenge</h2>
+        <!--Quiz Intro Prompt-->
+        <div id="quiz_start"><h2 id="quiz_prompt">Coding Quiz Challenge</h2>
             <p>Try to answer the following code-related questions within the time limit.
             <br>Keep in mind that incorrect answers will penalize your score/time by ten seconds!
             </p>
             <button id="start_quiz">Start Quiz</button>
-            </div>
+        </div>
 
-            <!--Quiz Questions-->
-            <div class="hidden" id="questions">
+        <!--Quiz Questions-->
+        <div class="hidden" id="questions">
             <h2 id="question_prompt"></h2>
-                <div id="options"><div>
-            <p id="answer_verification"></p>
-                </div>
+            <div id="options"><div>
+            <div id="answer_verification"></div>
+        </div>
 
-            <!--Save User Score & Initials-->
-            <div class="hidden" id="quiz_result">
-                <h2>All done!</h2>
-                <p>Your final score is 
-                    <span id="user_score"></span>
-                <br>
-                    <input type="text" id="user_name" placeholder="Enter initials."/>
-                    <button id="submit_score">Submit</button>
-                </p>
-            </div>
+        <!--Save User Score & Initials-->
+        <div class="hidden" id="quiz_result">
+            <h2>All done!</h2>
+            <p>Your final score is 
+                <span id="user_score"></span>
+            <br>
+                <input type="text" id="user_name" placeholder="Enter initials."/>
+                <button id="submit_score">Submit</button>
+            </p>
+        </div>
     </main>    
 
     <script src="./assets/script.js"></script>

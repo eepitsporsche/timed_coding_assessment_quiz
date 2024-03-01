@@ -66,7 +66,7 @@ a {
     border: 1px solid var(--button_background);
     border-radius: 16px;
     text-align: center;
-    /* height: 500px; */
+    /* height: 400px; */
 }
 
 /*Quiz options list*/
@@ -93,4 +93,15 @@ button {
 button:hover {
     background-color: var(--secondary);
     cursor: pointer;
+}
+
+/*Quiz Answer Button Style*/
+#options button {
+    display: block;
+}
+
+/*Correct/Incorrect Answer Style*/
+#answer_verification {
+    color: var(--secondary);
+    border-top: 2px solid var(--secondary);
 }
