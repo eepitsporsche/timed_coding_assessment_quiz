@@ -26,7 +26,7 @@ a {
 
 #high_scores:hover {
     color: var(--button_background);
-    cursor: grab;
+    cursor: pointer;
 }
 
 
@@ -41,8 +41,15 @@ a {
 
 
 /*Quiz Prompt Attributes*/
-.quiz_prompt, #question_prompt, .quiz_end > h2 {
+.quiz_prompt, .quiz_end > h2 {
     margin: 10% 0 0 0;
+    padding: 0 2% 0 2%;
+    font-weight: 600;
+}
+
+#question_prompt {
+    margin: 5% 0 5% 0;
+    padding: 0 2% 0 2%;
     font-weight: 600;
 }
 
@@ -62,11 +69,12 @@ a {
 /*Quiz Container Attributes*/
 .quiz_container {
     padding: 20px;
-    margin: 5% 10% 0 10%;
+    margin: 10% 10% 0 10%;
     border: 1px solid var(--button_background);
     border-radius: 16px;
     text-align: center;
-    /* height: 400px; */
+    max-width: 75%;
+    height: 400px;
 }
 
 /*Quiz options list*/
@@ -87,7 +95,7 @@ button {
     text-decoration: none;
     text-align: left;
     border-radius: 6px;
-    width: 200px;
+    width: 203px;
 }
 
 button:hover {

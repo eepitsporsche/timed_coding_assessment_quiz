@@ -15,25 +15,31 @@ var questions = [
     question: "Commonly used data types DO NOT include:",
     options: ["Strings", "Booleans", "Alerts", "Numbers"],
     answer: "Alerts",
+    },
 
+    {
     question: "The condition of an if/else statement is enclosed with:",
     options: ["Quotes", "Curly brackets", "Parenthesis", "Square brackets"],
     answer: "Parenthesis",
+    },
 
-
+    {
     question: "Arrays in javascript can be used to store _______.",
     options: ["Numbers and strings", "Other arrays", "Booleans", "All of the above"],
     answer: "All of the above",
+    },
 
+    {
     question: "String values must be enclosed within _______ when being assigned to variables.",
     options: ["Commas", "Curly brackets", "Quotes", "Parenthesis"],
     answer: "Quotes",
+    },
 
-
+    {
     question: "A very useful tool used during development and debugging for printing content to the debugger is:",
     options: ["Javascript", "Terminal/Bash", "For loops", "Console.log"],
     answer: "Console.log",
-}
+    },
 ]
 
 
@@ -52,12 +58,10 @@ function startQuiz() {
         1000);
 
     //Hide the opening quiz prompt
-    // quizStartPrompt.setAttribute("class", "hidden");
-    quizStartPrompt.style.display = "none";
+    quizStartPrompt.setAttribute("class", "hidden");
 
     //Display the quiz question
-    // questionsEl.removeAttribute("class");
-    questionsEl.style.display = "contents";
+    questionsEl.removeAttribute("class");
 
     getQuestion();
 }
@@ -68,7 +72,7 @@ function getQuestion() {
     var userQuestion = questions[currentQuestion];
     var questionPrompt = document.querySelector("#question_prompt");
 
-    //Produce question prompt of the current question
+    //Produce question prompt of the user's current question
     questionPrompt.textContent = userQuestion.question;
     
     //Insert buttons for each multiple choice option
@@ -89,24 +93,23 @@ function getQuestion() {
 //Determine if user's answer is correct/incorrect
 function verifyAnswer() {
     if (this.value !== questions[currentQuestion].answer) {
+
+        //Deduct 10 seconds for incorrect answer
+        secondsLeft -= 10;
+        if (secondsLeft < 0) {
+            secondsLeft = 0;
+        };
+
+        timerEl.textContent = secondsLeft;
         answerVerification.textContent = "Incorrect!";
-
-         //Deduct 10 seconds for incorrect answer
-         secondsLeft -= 10;
-         if (secondsLeft < 0) {
-             secondsLeft = 0;
-         };
-         timerEl.textContent = secondsLeft;
-
     } else {
         answerVerification.textContent = "Correct!";
     };
 
     //Correct/incorrect message times out
     setTimeout (function() {
-        answerVerification.style.display = "none";
-        // answerVerification.setAttribute("class", "hidden");
-    }, 2000);
+        answerVerification.setAttribute("class", "hidden");
+    }, 1000);
 
     //Presents next quiz question
     currentQuestion++;
@@ -142,11 +145,10 @@ function quizResult() {
     clearInterval(timerInterval);
 
     //Hide quiz questions
-    // questionsEl.setAttribute("class", "hidden");
-    questionsEl.style.display = "none";
+    questionsEl.setAttribute("class", "hidden");
 
     //Display emd of quiz prompt
-    quizEndPrompt.style.display = "contents";
+    quizEndPrompt.removeAttribute("class");
 
     //Display users score (seconds remaining on timer)
     userScore.textContent = secondsLeft;
