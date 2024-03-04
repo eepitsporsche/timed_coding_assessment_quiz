@@ -1,7 +1,8 @@
 :root {
     --button_background: rgb(44, 123, 171);
+    --line_background_primary: rgba(44, 122, 171, 0.644);
+    --line_background_secondary: rgba(230, 126, 143, 0.721);
     --secondary: rgb(230, 126, 143);
-
 }
 
 body {
@@ -12,19 +13,25 @@ a {
     text-decoration: none;
 }
 
+a:focus, button:focus {
+    border-color: var(--secondary);
+}
+
 .hidden {
     display: none;
 }
 
+
 /*High Score Link Style*/
-#high_scores {
+#high_scores_link {
     position: relative;
     margin-left: 5%;
+    font-size: 22px;
     font-weight: 100;
     color: var(--secondary);
 }
 
-#high_scores:hover {
+#high_scores_link:hover {
     color: var(--button_background);
     cursor: pointer;
 }
@@ -35,53 +42,23 @@ a {
     position: relative;
     color: var(--secondary);
     text-align: right;
-    margin: -4% 5% 0 0;
+    margin: 1% 5% 0 0;
+    font-size: 22px;
     font-weight: 100;
 }
 
 
-/*Quiz Prompt Attributes*/
-.quiz_prompt, .quiz_end > h2 {
-    margin: 10% 0 0 0;
-    padding: 0 2% 0 2%;
-    font-weight: 600;
-}
-
-#question_prompt {
-    margin: 5% 0 5% 0;
-    padding: 0 2% 0 2%;
-    font-weight: 600;
-}
-
-
-/*Start Quiz Button Attributes*/
-#start_quiz {
-    text-align: center;
-    padding: 1% 0 1% 0;
-    margin: 3% 0 3% 0;
-}
-
-#start_quiz:hover {
-    cursor: pointer;
-}
-
-
 /*Quiz Container Attributes*/
-.quiz_container {
+.quiz_container, .high_scores_container{
     padding: 20px;
     margin: 10% 10% 0 10%;
-    border: 1px solid var(--button_background);
+    border: 2px solid var(--button_background);
     border-radius: 16px;
     text-align: center;
     max-width: 75%;
-    height: 400px;
+    min-height: 450px;
 }
 
-/*Quiz options list*/
-ul li {
-    list-style: none;
-    text-align: left;
-}
 
 /*Button Style*/
 button {
@@ -93,7 +70,7 @@ button {
     padding: 1% 2%;
     margin: 1% 0% 1% 5%;
     text-decoration: none;
-    text-align: left;
+    text-align: center;
     border-radius: 6px;
     width: 203px;
 }
@@ -101,15 +78,78 @@ button {
 button:hover {
     background-color: var(--secondary);
     cursor: pointer;
+    color: var(--button_background);
 }
+
+
+/*Start Quiz Button Attributes*/
+#start_quiz {
+    padding: 1% 0 1% 0;
+    margin: 3% 0 0 0;
+}
+
+
+/*Quiz Prompts Attributes*/
+#quiz_prompt, #quiz_result > h2, .high_scores_container > h1 {
+    margin: 10% 0 5% 0;
+    padding: 0 2% 0 2%;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+#quiz_result {
+    line-height: 1.6;
+}
+
+#quiz_start {
+    margin: 10% 0 0 0;
+}
+
+#question_prompt {
+    margin: 5% 0 5% 0;
+    padding: 0 2% 0 2%;
+    font-weight: 600;
+}
+
 
 /*Quiz Answer Button Style*/
 #options button {
     display: block;
+    text-align: left;
 }
+
 
 /*Correct/Incorrect Answer Style*/
 #answer_verification {
     color: var(--secondary);
+    font-weight: 600;
+    font-size: 120%;
+    color: var(--secondary);
+    margin-top: 5%;
+    padding-top: 5%;
     border-top: 2px solid var(--secondary);
+}
+
+/*Submit Score Button Style*/
+#submit_score {
+    margin: 5% 0 0 0;
+}
+
+/*High Scores Style*/
+#high_scores_container {
+    margin: 5% 0 5% 0;
+    padding: 0 2% 0 2%;
+    font-weight: 600;
+}
+
+#high_scores li:nth-child(odd) {
+    background-color: var(--line_background_primary);
+}
+
+#high_scores li:nth-child(even) {
+    background-color: var(--line_background_secondary);
+}
+
+.high_scores_container button {
+    margin: 5% 3% 0 3%;
 }

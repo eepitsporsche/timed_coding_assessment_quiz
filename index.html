@@ -6,52 +6,62 @@
     <link rel="stylesheet" href="./assets/style.css">
     <title>Timed Coding Assessment Quiz</title>
 </head>
+
+
 <body>
 
-    <!-- <header> -->
-    <!--High score link-->
-    <div>
-        <a href="./highscores.html"><h2 id="high_scores">High Scores</h2></a>
-    </div>
+    <header>
 
-    <!--Timer-->
-    <div>
-        <h2 id="timer"></h2>
-    </div>
-    <!-- </header> -->
+        <!--Timer-->
+        <div>
+            <h2 id="timer"></h2>
+        </div>
+        
+        <!--High scores link-->
+        <div>
+            <a href="./highscores.html" id="high_scores_link">High Scores</a>
+        </div>
 
-    <!--Quiz Container-->
+    </header>
+
+
     <main class="quiz_container">
+
         <!--Quiz Intro Prompt-->
-        <div id="quiz_start"><h2 id="quiz_prompt">Coding Quiz Challenge</h2>
-            <p>Try to answer the following code-related questions within the time limit.
-            <br>Keep in mind that incorrect answers will penalize your score/time by ten seconds!
-            </p>
-            <button id="start_quiz">Start Quiz</button>
+        <div id="quiz_start">
+                <h1 id="quiz_prompt">Coding Quiz Challenge</h1>
+                <p>
+                    Try to answer the following code-related questions within the time limit.
+                    <br>Keep in mind that incorrect answers will penalize your score/time by ten seconds!
+                </p>
+                <button id="start_quiz">Start Quiz</button>
         </div>
 
         <!--Quiz Questions-->
         <div class="hidden" id="questions">
             <h2 id="question_prompt"></h2>
-            <div id="options"><div>
+            <div id="options">
+            </div>
         </div>
-
-        <!--Verify Answer as Correct/Incorrect-->
-        <div id="answer_verification"></div>
 
         <!--Save User Score & Initials-->
         <div class="hidden" id="quiz_result">
-            <h2>All done!</h2>
-            <p>Your final score is 
+            <h2>All Done!</h2>
+            <p>Your final score is:
                 <span id="user_score"></span>
             <br>
-                <input type="text" id="user_name" placeholder="Enter initials."/>
-                <button id="submit_score">Submit</button>
+                <input type="text" id="user_name" placeholder="Enter initials"/>
+                <br>
+                <button id="submit_score">Save Score</button>
             </p>
         </div>
-    </main>    
 
-    <script src="./assets/script.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <!--Verify Answer as Correct/Incorrect-->
+        <div class="hidden" id="answer_verification"></div>
+
+    </main>
+
+<script src="./assets/script.js "></script>
 </body>
+
 </html>
