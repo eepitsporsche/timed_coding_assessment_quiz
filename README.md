@@ -34,11 +34,11 @@ From the high scores page, the user may navigate back to the quiz homepage by cl
 
 ## Credits
 
-* [Geeks for Geeks] (https://www.geeksforgeeks.org/create-a-quiz-app-with-timer-using-html-css-and-javascript/) was instrumental in providing an example for how this app should operate. With this example and the information provided by the UCB Bootcamp, I could understand and implement the necessary operations for the app.
+* [Geeks for Geeks](https://www.geeksforgeeks.org/create-a-quiz-app-with-timer-using-html-css-and-javascript/) was instrumental in providing an example for how this app should operate. With this example and the information provided by the UCB Bootcamp, I could understand and implement the necessary operations for the app.
 
-* [mdn web docs_] (https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) was used for information on <code>localstorge</code> properties.
+* [mdn web docs_](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) was used for information on <code>localstorge</code> properties.
 
-* [w3 Schools] (https://www.w3schools.com/) was used for information on various elements of the javascript functions and how to stylize the <code>ol</code>.
+* [w3 Schools](https://www.w3schools.com/) was used for information on various elements of the javascript functions and how to stylize the <code>ol</code>.
 
 ## License
 N/A
