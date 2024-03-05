@@ -154,20 +154,20 @@ function countDown() {
     //Quiz ends when timer reaches zero
     if (secondsLeft <= 0) {
         clearInterval(timerInterval);
+		alert("Out of Time - Game Over");
 		quizResult();
 	}
 }
 
 
 //Log user's score in high scores
+var highscores = JSON.parse(window.localStorage.getItem("highscores")) ?? [];
+
 function logUserScore() {
 	var name = userNameEl.value.trim();
     //Create a "highscores" log in local storage if a user's name has been entered or an empty array in local storage
 	if (name !== "") {
-		var highscores =
-			JSON.parse(window.localStorage.getItem(
-					"highscores")
-			) || [];
+
         //Define new name and score input values to the local storage log
 		var newHighScore = {
 			score: secondsLeft,

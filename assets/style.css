@@ -1,7 +1,7 @@
 :root {
     --button_background: rgb(44, 123, 171);
-    --line_background_primary: rgba(44, 122, 171, 0.644);
-    --line_background_secondary: rgba(230, 126, 143, 0.721);
+    --line_background_primary: rgba(44, 122, 171, 0.541);
+    --line_background_secondary: rgba(230, 126, 143, 0.537);
     --secondary: rgb(230, 126, 143);
 }
 
@@ -24,11 +24,17 @@ a:focus, button:focus {
 
 /*High Score Link Style*/
 #high_scores_link {
-    position: relative;
-    margin-left: 5%;
+    position: absolute;
+	top: 15px;
+	left: 20px;
     font-size: 22px;
     font-weight: 100;
     color: var(--secondary);
+}
+
+#high_scores_link::after {
+    content: "\21D7";
+    font-size: 30px;
 }
 
 #high_scores_link:hover {
@@ -39,10 +45,11 @@ a:focus, button:focus {
 
 /*Timer Style*/
 #timer {
-    position: relative;
+	position: absolute;
+	top: 5px;
+	right: 20px;
     color: var(--secondary);
     text-align: right;
-    margin: 1% 5% 0 0;
     font-size: 22px;
     font-weight: 100;
 }
@@ -56,7 +63,7 @@ a:focus, button:focus {
     border-radius: 16px;
     text-align: center;
     max-width: 75%;
-    min-height: 450px;
+    min-height: 400px;
 }
 
 
@@ -136,20 +143,30 @@ button:hover {
 }
 
 /*High Scores Style*/
-#high_scores_container {
-    margin: 5% 0 5% 0;
-    padding: 0 2% 0 2%;
-    font-weight: 600;
+.high_scores_container {
+    min-height: auto;
 }
 
-#high_scores li:nth-child(odd) {
+#high_scores_list {
+    width: 30%;
+    display: inline-block;
+    text-align: left;
+    list-style-position: inside;
+    padding-inline-start: 0px
+}
+
+#high_scores_list li {
+    padding-left: 2%;
+}
+
+#high_scores_list li:nth-child(odd) {
     background-color: var(--line_background_primary);
 }
 
-#high_scores li:nth-child(even) {
+#high_scores_list li:nth-child(even) {
     background-color: var(--line_background_secondary);
 }
 
 .high_scores_container button {
-    margin: 5% 3% 0 3%;
+    margin: 5% 3% 10% 3%;
 }
