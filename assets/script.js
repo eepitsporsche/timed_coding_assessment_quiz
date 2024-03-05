@@ -165,7 +165,7 @@ var highscores = JSON.parse(window.localStorage.getItem("highscores")) ?? [];
 
 function logUserScore() {
 	var name = userNameEl.value.trim();
-    //Create a "highscores" log in local storage if a user's name has been entered or an empty array in local storage
+    //If a user's name has been entered, log in local storage
 	if (name !== "") {
 
         //Define new name and score input values to the local storage log
