@@ -30,6 +30,8 @@ The user may clear the high scores saved to local storage by clicking the "Clear
 
 From the high scores page, the user may navigate back to the quiz homepage by clicking the "Return to Quiz" button.
 
+<p align="center"><img src="./assets/timed_coding_assessment_quiz.gif" alt="Timed Coding Assessment Quiz"></p>
+
 ## Credits
 
 * [Geeks for Geeks] (https://www.geeksforgeeks.org/create-a-quiz-app-with-timer-using-html-css-and-javascript/) was instrumental in providing an example for how this app should operate. With this example and the information provided by the UCB Bootcamp, I could understand and implement the necessary operations for the app.

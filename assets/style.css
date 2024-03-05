@@ -92,13 +92,13 @@ button:hover {
 /*Start Quiz Button Attributes*/
 #start_quiz {
     padding: 1% 0 1% 0;
-    margin: 3% 0 0 0;
+    margin: 3% 0 5% 0;
 }
 
 
 /*Quiz Prompts Attributes*/
 #quiz_prompt, #quiz_result > h2, .high_scores_container > h1 {
-    margin: 10% 0 5% 0;
+    margin: 5% 0 5% 0;
     padding: 0 2% 0 2%;
     font-size: 40px;
     font-weight: 600;
@@ -132,14 +132,14 @@ button:hover {
     font-weight: 600;
     font-size: 120%;
     color: var(--secondary);
-    margin-top: 5%;
-    padding-top: 5%;
+    margin: 5% 0 2% 0;
+    padding-top: 2%;
     border-top: 2px solid var(--secondary);
 }
 
 /*Submit Score Button Style*/
 #submit_score {
-    margin: 5% 0 0 0;
+    margin: 5% 0 5% 0;
 }
 
 /*High Scores Style*/
