@@ -1,4 +1,4 @@
-# Timed Coding Assesment Quiz Javascript App
+# Timed Coding Assessment Quiz Javascript App
 
 ## Description
 
@@ -12,7 +12,7 @@ To operate the Timed Coding Assessment Quiz, a user must have a browser that sup
 
 ## Usage
 
-Opening the [Timed Coding Assesment Quiz Webpage] () and clicking the "Start Quiz" button will initiate the quiz time clock countdown of 75 seconds.
+Opening the [Timed Coding Assessment Quiz Webpage] () and clicking the "Start Quiz" button will initiate the quiz time clock countdown of 75 seconds.
 
 The user will be presented with a series of five multiple choice questions. If the user answers a question incorrectly, ten seconds will be deducted from the time clock.
 
