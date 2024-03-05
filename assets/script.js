@@ -159,6 +159,11 @@ function countDown() {
 	}
 }
 
+//Force user input to uppercase
+userNameEl.addEventListener("keyup", function(event) {
+    event.preventDefault();
+    userNameEl.value = userNameEl.value.toUpperCase();
+  })
 
 //Log user's score in high scores
 var highscores = JSON.parse(window.localStorage.getItem("highscores")) ?? [];
